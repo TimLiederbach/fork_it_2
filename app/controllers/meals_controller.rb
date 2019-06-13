@@ -1,6 +1,6 @@
 class MealsController < ApplicationController
   def index
-    @meals = Meal.all
+    @meals = Meal.page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@meals.where.not(:image_url_latitude => nil)) do |meal, marker|
       marker.lat meal.image_url_latitude
       marker.lng meal.image_url_longitude
