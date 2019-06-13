@@ -6,6 +6,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @restaurant = Restaurant.new
+    @like = Like.new
     @user = User.find(params.fetch("id_to_display"))
 
     render("user_templates/show.html.erb")

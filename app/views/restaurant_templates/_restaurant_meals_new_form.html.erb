@@ -1,0 +1,37 @@
+<!-- Form meal start -->
+<form action="/create_meal_from_restaurant" method="post">
+<!-- Form meal end -->
+
+  <!-- Label and input for name start -->
+  <div class="form-group">
+    <label for="name">
+      Name
+    </label>
+
+    <!-- Input for name start -->
+    <input type="text" id="name" name="name" class="form-control" value="<%= @meal.name %>">
+    <!-- Input for name end -->
+  </div>
+  <!-- Label and input for name end -->
+
+  <!-- Label and input for restaurant_id start -->
+  <!-- Input for restaurant_id start -->
+  <input type="hidden" name="restaurant_id" value="<%= @restaurant.id %>">
+  <!-- Input for restaurant_id end -->
+
+  <!-- Label and input for image_url start -->
+  <div class="form-group">
+    <label for="image_url">
+      Image url
+    </label>
+
+    <!-- Input for image_url start -->
+    <input type="text" id="image_url" name="image_url" class="form-control" value="<%= @meal.image_url %>">
+    <!-- Input for image_url end -->
+  </div>
+  <!-- Label and input for image_url end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create meal
+  </button>
+</form>

@@ -6,6 +6,8 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    @like = Like.new
+    @meal = Meal.new
     @restaurant = Restaurant.find(params.fetch("id_to_display"))
 
     render("restaurant_templates/show.html.erb")
@@ -32,6 +34,26 @@ class RestaurantsController < ApplicationController
       @restaurant.save
 
       redirect_back(:fallback_location => "/restaurants", :notice => "Restaurant created successfully.")
+    else
+      render("restaurant_templates/new_form_with_errors.html.erb")
+    end
+  end
+
+  def create_row_from_user
+    @restaurant = Restaurant.new
+
+    @restaurant.name = params.fetch("name")
+    @restaurant.address = params.fetch("address")
+    @restaurant.image_url = params.fetch("image_url")
+    @restaurant.description = params.fetch("description")
+    @restaurant.creator_id = params.fetch("creator_id")
+    @restaurant.rating = params.fetch("rating")
+    @restaurant.cuisine = params.fetch("cuisine")
+
+    if @restaurant.valid?
+      @restaurant.save
+
+      redirect_to("/users/#{@restaurant.creator_id}", notice: "Restaurant created successfully.")
     else
       render("restaurant_templates/new_form_with_errors.html.erb")
     end

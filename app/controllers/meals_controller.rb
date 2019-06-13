@@ -33,6 +33,22 @@ class MealsController < ApplicationController
     end
   end
 
+  def create_row_from_restaurant
+    @meal = Meal.new
+
+    @meal.name = params.fetch("name")
+    @meal.restaurant_id = params.fetch("restaurant_id")
+    @meal.image_url = params.fetch("image_url")
+
+    if @meal.valid?
+      @meal.save
+
+      redirect_to("/restaurants/#{@meal.restaurant_id}", notice: "Meal created successfully.")
+    else
+      render("meal_templates/new_form_with_errors.html.erb")
+    end
+  end
+
   def edit_form
     @meal = Meal.find(params.fetch("prefill_with_id"))
 
