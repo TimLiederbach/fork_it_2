@@ -52,7 +52,9 @@
       </dt>
       <!-- Display image_url start -->
       <dd>
-        <%= @meal.image_url %>
+        <div>
+          <%= render partial: "meal_templates/one_photo_map" %>
+        </div>
       </dd>
       <!-- Display image_url end -->
 

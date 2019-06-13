@@ -52,7 +52,9 @@
       </dt>
       <!-- Display image_url start -->
       <dd>
-        <%= @restaurant.image_url %>
+        <div>
+          <%= render partial: "restaurant_templates/one_photo_map" %>
+        </div>
       </dd>
       <!-- Display image_url end -->
 

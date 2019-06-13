@@ -1,6 +1,11 @@
 class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
+    @location_hash = Gmaps4rails.build_markers(@restaurants.where.not(:image_url_latitude => nil)) do |restaurant, marker|
+      marker.lat restaurant.image_url_latitude
+      marker.lng restaurant.image_url_longitude
+      marker.infowindow "<h5><a href='/restaurants/#{restaurant.id}'>#{restaurant.name}</a></h5><small>#{restaurant.image_url_formatted_address}</small>"
+    end
 
     render("restaurant_templates/index.html.erb")
   end

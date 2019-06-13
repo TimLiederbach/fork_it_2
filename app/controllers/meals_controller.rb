@@ -1,6 +1,11 @@
 class MealsController < ApplicationController
   def index
     @meals = Meal.all
+    @location_hash = Gmaps4rails.build_markers(@meals.where.not(:image_url_latitude => nil)) do |meal, marker|
+      marker.lat meal.image_url_latitude
+      marker.lng meal.image_url_longitude
+      marker.infowindow "<h5><a href='/meals/#{meal.id}'>#{meal.name}</a></h5><small>#{meal.image_url_formatted_address}</small>"
+    end
 
     render("meal_templates/index.html.erb")
   end
