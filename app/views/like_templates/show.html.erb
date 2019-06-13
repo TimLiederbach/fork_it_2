@@ -34,7 +34,11 @@
       </dt>
       <!-- Display restaurant_id start -->
       <dd>
-        <%= @like.restaurant_id %>
+        <% if @like.restaurant.present? %>
+          <a href="/restaurants/<%= @like.restaurant_id %>">
+            <%= @like.restaurant.name %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display restaurant_id end -->
 
@@ -43,7 +47,11 @@
       </dt>
       <!-- Display user_id start -->
       <dd>
-        <%= @like.user_id %>
+        <% if @like.user.present? %>
+          <a href="/users/<%= @like.user_id %>">
+            <%= @like.user.name %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display user_id end -->
 

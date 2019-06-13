@@ -43,7 +43,11 @@
       </dt>
       <!-- Display restaurant_id start -->
       <dd>
-        <%= @meal.restaurant_id %>
+        <% if @meal.restaurant.present? %>
+          <a href="/restaurants/<%= @meal.restaurant_id %>">
+            <%= @meal.restaurant.name %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display restaurant_id end -->
 

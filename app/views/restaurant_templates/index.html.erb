@@ -106,7 +106,11 @@
 
         <!-- Display restaurant.creator_id start -->
         <td>
-          <%= restaurant.creator.name %>
+          <% if restaurant.creator.present? %>
+            <a href="/users/<%= restaurant.creator.id %>">
+              <%= restaurant.creator.name %>
+            </a>
+          <% end %>
         </td>
         <!-- Display restaurant.creator_id end -->
 

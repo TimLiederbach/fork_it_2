@@ -72,7 +72,11 @@
       </dt>
       <!-- Display creator_id start -->
       <dd>
-        <%= @restaurant.creator_id %>
+        <% if @restaurant.creator.present? %>
+          <a href="/users/<%= @restaurant.creator_id %>">
+            <%= @restaurant.creator.name %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display creator_id end -->
 
