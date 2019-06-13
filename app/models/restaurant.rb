@@ -1,6 +1,9 @@
 class Restaurant < ApplicationRecord
   # Direct associations
 
+  belongs_to :creator,
+             :class_name => "User"
+
   has_many   :likes,
              :dependent => :destroy
 
