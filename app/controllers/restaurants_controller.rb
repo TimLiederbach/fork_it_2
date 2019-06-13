@@ -63,6 +63,14 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  def destroy_row_from_creator
+    @restaurant = Restaurant.find(params.fetch("id_to_remove"))
+
+    @restaurant.destroy
+
+    redirect_to("/users/#{@restaurant.creator_id}", notice: "Restaurant deleted successfully.")
+  end
+
   def destroy_row
     @restaurant = Restaurant.find(params.fetch("id_to_remove"))
 

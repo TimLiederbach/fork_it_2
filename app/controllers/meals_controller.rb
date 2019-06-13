@@ -55,6 +55,14 @@ class MealsController < ApplicationController
     end
   end
 
+  def destroy_row_from_restaurant
+    @meal = Meal.find(params.fetch("id_to_remove"))
+
+    @meal.destroy
+
+    redirect_to("/restaurants/#{@meal.restaurant_id}", notice: "Meal deleted successfully.")
+  end
+
   def destroy_row
     @meal = Meal.find(params.fetch("id_to_remove"))
 
