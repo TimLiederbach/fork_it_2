@@ -63,7 +63,7 @@
     </label>
 
     <!-- Input for creator_id start -->
-    <input type="text" id="creator_id" name="creator_id" class="form-control" value="<%= @restaurant.creator_id %>">
+    <%= select_tag(:creator_id, options_from_collection_for_select(User.all, :id, :name, @restaurant.creator_id), :class => "form-control") %>
     <!-- Input for creator_id end -->
   </div>
   <!-- Label and input for creator_id end -->
