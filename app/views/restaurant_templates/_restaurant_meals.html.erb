@@ -10,26 +10,20 @@
   <ul class="list-group list-group-flush">
     <% @restaurant.meals.each do |meal| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <a href="/meals/<%= meal.id %>">
           <%= meal.name %>
         </a>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <a href="/delete_meal_from_restaurant/<%= meal.id %>">
           Delete
         </a>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="restaurant_meals_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "restaurant_templates/restaurant_meals_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

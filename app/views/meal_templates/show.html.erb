@@ -11,37 +11,30 @@
         </a>
       </div>
 
-      <!-- Edit link meal start -->
       <div class="col">
         <a href="/meals/<%= @meal.id %>/edit" class="btn btn-block btn-outline-secondary">
           Edit meal
         </a>
       </div>
-      <!-- Edit link meal end -->
 
-      <!-- Delete link meal start -->
       <div class="col">
         <a href="/delete_meal/<%= @meal.id %>" class="btn btn-block btn-outline-secondary">
           Delete meal
         </a>
       </div>
-      <!-- Delete link meal end -->
     </div>
 
     <dl>
       <dt>
         Name
       </dt>
-      <!-- Display name start -->
       <dd>
         <%= @meal.name %>
       </dd>
-      <!-- Display name end -->
 
       <dt>
         Restaurant
       </dt>
-      <!-- Display restaurant_id start -->
       <dd>
         <% if @meal.restaurant.present? %>
           <a href="/restaurants/<%= @meal.restaurant_id %>">
@@ -49,39 +42,30 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display restaurant_id end -->
 
       <dt>
         Image url
       </dt>
-      <!-- Display image_url start -->
       <dd>
         <div>
           <%= render partial: "meal_templates/one_photo_map" %>
         </div>
       </dd>
-      <!-- Display image_url end -->
 
       <dt>
         Created at
       </dt>
-      <!-- Display created_at start -->
       <dd>
         <%= time_ago_in_words(@meal.created_at) %> ago
       </dd>
-      <!-- Display created_at end -->
 
       <dt>
         Updated at
       </dt>
-      <!-- Display updated_at start -->
       <dd>
         <%= time_ago_in_words(@meal.updated_at) %> ago
       </dd>
-      <!-- Display updated_at end -->
     </dl>
   </div>
 </div>
 
-<!-- Show Page Customization starts -->
-<!-- Show Page Customization end -->

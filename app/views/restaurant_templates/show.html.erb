@@ -11,66 +11,53 @@
         </a>
       </div>
 
-      <!-- Edit link restaurant start -->
       <div class="col">
         <a href="/restaurants/<%= @restaurant.id %>/edit" class="btn btn-block btn-outline-secondary">
           Edit restaurant
         </a>
       </div>
-      <!-- Edit link restaurant end -->
 
-      <!-- Delete link restaurant start -->
       <div class="col">
         <a href="/delete_restaurant/<%= @restaurant.id %>" class="btn btn-block btn-outline-secondary">
           Delete restaurant
         </a>
       </div>
-      <!-- Delete link restaurant end -->
     </div>
 
     <dl>
       <dt>
         Name
       </dt>
-      <!-- Display name start -->
       <dd>
         <%= @restaurant.name %>
       </dd>
-      <!-- Display name end -->
 
       <dt>
         Address
       </dt>
-      <!-- Display address start -->
       <dd>
         <%= @restaurant.address %>
       </dd>
-      <!-- Display address end -->
 
       <dt>
         Image url
       </dt>
-      <!-- Display image_url start -->
       <dd>
         <div>
           <%= render partial: "restaurant_templates/one_photo_map" %>
         </div>
       </dd>
-      <!-- Display image_url end -->
 
       <dt>
         Description
       </dt>
-      <!-- Display description start -->
       <dd>
         <%= @restaurant.description %>
       </dd>
-      <!-- Display description end -->
 
       <dt>
         Creator
       </dt>
-      <!-- Display creator_id start -->
       <dd>
         <% if @restaurant.creator.present? %>
           <a href="/users/<%= @restaurant.creator_id %>">
@@ -78,48 +65,38 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display creator_id end -->
 
       <dt>
         Rating
       </dt>
-      <!-- Display rating start -->
       <dd>
         <%= @restaurant.rating %>
       </dd>
-      <!-- Display rating end -->
 
       <dt>
         Cuisine
       </dt>
-      <!-- Display cuisine start -->
       <dd>
         <%= @restaurant.cuisine %>
       </dd>
-      <!-- Display cuisine end -->
 
       <dt>
         Created at
       </dt>
-      <!-- Display created_at start -->
       <dd>
         <%= time_ago_in_words(@restaurant.created_at) %> ago
       </dd>
-      <!-- Display created_at end -->
 
       <dt>
         Updated at
       </dt>
-      <!-- Display updated_at start -->
       <dd>
         <%= time_ago_in_words(@restaurant.updated_at) %> ago
       </dd>
-      <!-- Display updated_at end -->
     </dl>
   </div>
 </div>
 
-<!-- Show Page Customization starts -->
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <%= render partial: "restaurant_templates/restaurant_meals" %>
@@ -131,4 +108,3 @@
     <%= render partial: "restaurant_templates/restaurant_likes" %>
   </div>
 </div>
-<!-- Show Page Customization end -->

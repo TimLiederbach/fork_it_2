@@ -4,93 +4,63 @@
 
 <hr>
 
-<!-- Form restaurant start -->
 <form action="/update_restaurant/<%= @restaurant.id %>" method="post">
-<!-- Form restaurant end -->
 
-  <!-- Label and input for name start -->
   <div class="form-group">
     <label for="name">
       Name
     </label>
 
-    <!-- Input for name start -->
     <input type="text" id="name" name="name" class="form-control" value="<%= @restaurant.name %>">
-    <!-- Input for name end -->
   </div>
-  <!-- Label and input for name end -->
 
-  <!-- Label and input for address start -->
   <div class="form-group">
     <label for="address">
       Address
     </label>
 
-    <!-- Input for address start -->
     <input type="text" id="address" name="address" class="form-control" value="<%= @restaurant.address %>">
-    <!-- Input for address end -->
   </div>
-  <!-- Label and input for address end -->
 
-  <!-- Label and input for image_url start -->
   <div class="form-group">
     <label for="image_url">
       Image url
     </label>
 
-    <!-- Input for image_url start -->
     <input type="text" id="image_url" name="image_url" class="form-control" value="<%= @restaurant.image_url %>">
-    <!-- Input for image_url end -->
   </div>
-  <!-- Label and input for image_url end -->
 
-  <!-- Label and input for description start -->
   <div class="form-group">
     <label for="description">
       Description
     </label>
 
-    <!-- Input for description start -->
     <input type="text" id="description" name="description" class="form-control" value="<%= @restaurant.description %>">
-    <!-- Input for description end -->
   </div>
-  <!-- Label and input for description end -->
 
-  <!-- Label and input for creator_id start -->
   <div class="form-group">
     <label for="creator_id">
       Creator
     </label>
 
-    <!-- Input for creator_id start -->
     <%= select_tag(:creator_id, options_from_collection_for_select(User.all, :id, :name, @restaurant.creator_id), :class => "form-control") %>
-    <!-- Input for creator_id end -->
   </div>
-  <!-- Label and input for creator_id end -->
 
-  <!-- Label and input for rating start -->
   <div class="form-group">
     <label for="rating">
       Rating
     </label>
 
-    <!-- Input for rating start -->
     <input type="text" id="rating" name="rating" class="form-control" value="<%= @restaurant.rating %>">
-    <!-- Input for rating end -->
   </div>
-  <!-- Label and input for rating end -->
 
-  <!-- Label and input for cuisine start -->
   <div class="form-group">
     <label for="cuisine">
       Cuisine
     </label>
 
-    <!-- Input for cuisine start -->
     <input type="text" id="cuisine" name="cuisine" class="form-control" value="<%= @restaurant.cuisine %>">
-    <!-- Input for cuisine end -->
   </div>
-  <!-- Label and input for cuisine end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Update restaurant
